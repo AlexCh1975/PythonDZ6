@@ -8,21 +8,11 @@
 
 def sort_list(persons):
     print(persons)
-    keys = []
-    for i in persons:
-        if not i[0] in keys:
-            keys.append(i[0])
-
-    # keys = [i[0] for i in persons if not i[0] in keys]
-    
+    keys = [i[0] for i in persons]
     obj_persons = {}
-    temp = []
+
     for key in keys:
-        for i in persons:
-            if i[0] in key:
-                temp.append(i)
-        obj_persons[key] = temp
-        temp = []
+        obj_persons[key] = [i for i in persons if i[0] in key] 
     obj_persons_sort = dict(sorted(obj_persons.items()))
 
     return obj_persons_sort            
